@@ -1,4 +1,7 @@
 ## Code Composer Junk Files from Eclipse
+.jxbrowser-data
+.metadata
+RemoteSystemsTempFiles
 *.cproject
 *.project
 *.cmd

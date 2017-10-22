@@ -17,4 +17,5 @@ RemoteSystemsTempFiles
 *.mk
 *.ccxml
 *.txt
+*.opt
 **/README - Copy.md

@@ -32,7 +32,7 @@ int main(void)
 #pragma vector = ADC12_VECTOR
 __interrupt void ADC12_ISR(void)
 {
-    adc_value = ADC12MEM0;
+    if(ADC12MEM0 <= 0x0F) ;
 }
 
 void initGPIO()

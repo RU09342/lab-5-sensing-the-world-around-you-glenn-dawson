@@ -46,7 +46,7 @@
 //  MSP430G2553 Light-level Sensing with OP0805SL
 //
 //  Description: ADC10 is used to sample a light-level reading obtained from the
-//  OP0805SL. Sampling is performed at one sample per second.
+//  OP0805SL.
 
 #include <msp430.h>
 

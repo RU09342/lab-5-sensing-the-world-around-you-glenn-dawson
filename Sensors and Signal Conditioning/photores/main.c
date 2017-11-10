@@ -43,10 +43,10 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
-//  MSP430G2553 Light-level Sensing with OP0805SL
+//  MSP430G2553 Light-level Sensing with a photoresistor
 //
 //  Description: ADC10 is used to sample a light-level reading obtained from the
-//  OP0805SL.
+//  a photoresistor.
 
 #include <msp430.h>
 

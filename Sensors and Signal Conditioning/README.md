@@ -23,6 +23,8 @@ Although the code included contains its own documentation, the following will pr
 This code configures the ADC to use channel A4, located on P1.4, with a clock divider = 6. Moreover, the ADC is set to use VREF, which is configured as 2.5V. Lastly, the ADC interrupt is enabled to allow the MCU to transmit updated ADC data.
 
 ## How do these circuits work?
+![Circuits](../circuits.jpg)
+
 The circuit which uses the phototransistor is commonly known as a common-emitter amplifier, meaning that the emitter of transistor is grounded. In this configuration, V_out is taken at the collector of the transistor.
 
 The amount of base current is proportional to the amount of light that the phototransistor receives. By controlling the base current, the transistor's collector current also changes accordingly. The increase in current creates a greater voltage drop across the collector resistor, decreasing the output voltage.

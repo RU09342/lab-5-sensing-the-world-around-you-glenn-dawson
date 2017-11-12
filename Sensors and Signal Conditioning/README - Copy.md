@@ -32,13 +32,3 @@ Moreover, the photoresistor circuit uses a 10kohm resistor in a basic voltage di
 V_out = V_cc * R2/(R1+R2)
 
 where R1 is the photoresistor and R2 is the 10kohm resistor, the voltage is directly proportional to the amount of light on the photoresistor. As light increases, resistance decreases, which increases voltage and vice versa. R2 was chosen to approximately equal the impedance of the photoresistor when it is exposed to an average room's lighting environment.
-## Deliverables
-
-### Code
-Your code for this section should focus heavily on the ADC and being able to pull data from it. Your code need to communicate back to your computer using UART at 9600 Baud and send the ADC contents at 1 reading per second to start. This really is meant for you to see whether or not your signal conditioning is actually working and you can see changes in your sensor reading. This code should be very very similar to code you have written before and should be simple to port between your processors.
-
-### Hardware
-The hardware portion should be the same for each of the processors. You will need to have a total of 3 circuits made, each corresponding to a different sensor. You need to look at the range of measurements and the amount of resolution you can get out of your ADC and determine how to convert, scale, and filter your signal. Don't forget the fact that you will need to convert to a voltage, making some of these circuits not so trivial. The main goal as the hardware designer for these sensors is to provide the microprocessor with the best resolution to maximize the effectiveness of the ADC.
-
-### README
-The README for this part of the lab should talk briefly about how the ADC code works, but focus way more on the hardware aspect. You need to include schematics of your circuits, and well as supporting simulation/calculations which show that your circuits should work. You should talk about what types of circuits you are using and how they actually work.

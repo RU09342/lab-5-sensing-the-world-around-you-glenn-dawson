@@ -5,7 +5,7 @@ The included program is compatible with the MSP430G2553. The program is designed
 This program depends only on having the G2553-specific header file, which is included in the main file. This file is the MSP430.h file included at the beginning of the main file.
 
 ## Usage
-To use this program, configure the circuit shown in the picture included (OP0805SL.JPG). This circuit uses a phototransistor and its collector voltage as input to the ADC. The voltage can be increased by shielding the phototransistor from light and decreased by shining intense light on the phototransistor. These voltage changes are reflected by the values held in ADC10MEM0. One can also use the circuit shown in photoresistor.JPG. The same process holds true for this circuit.
+To use this program, configure the circuit shown in the picture included (OP0805SL). This circuit uses a phototransistor and its collector voltage as input to the ADC. The voltage can be increased by shielding the phototransistor from light and decreased by shining intense light on the phototransistor. These voltage changes are reflected by the values held in ADC10MEM0. Open a UART terminal and select the correct port to visualize the contents of the ADC. One can also use the circuit shown in photoresistor.JPG. The same process holds true for this circuit.
 
 The LM35 uses its own program to display the temperature over UART. Using the transfer function provided by the manufacturer, the program converts the ADC contents to the temperature in Celcius. The conversion is as follows: 
 

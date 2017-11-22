@@ -39,4 +39,3 @@ Moreover, the photoresistor circuit uses a 10kohm resistor in a basic voltage di
 V_out = V_cc * R2/(R1+R2)
 
 where R1 is the photoresistor and R2 is the 10kohm resistor, the voltage is directly proportional to the amount of light on the photoresistor. As light increases, resistance decreases, which increases voltage and vice versa. R2 was chosen to approximately equal the impedance of the photoresistor when it is exposed to an average room's lighting environment.
-Now that you are getting sensor data and acting on it, why don't you actually try to display the information the user in actual numbers. Using the MSP430FR6989, convert the information from all three of your sensors to a human readable value on the on-board LCD. Fair warning, *DO NOT TRY TO REINVENT THE WHEEL*. Make sure you give the resource explorer a good looking through to see what TI is going to provide you. You can utilize the provided LCDDriver.c and LCDDriver.h files in your code.

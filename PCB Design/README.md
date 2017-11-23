@@ -4,8 +4,8 @@ This sub-folder contains the Gerber files for the MSP430FR2311 Breakout Board. T
 
 ## Schematic
 
-![Schematic](../MSP430FR2311 Schematic.bmp)
+![Schematic](../MSP430FR2311 Schematic.jpg)
 
 ## Board
 
-![Board](../MSP430FR2311 Board.bmp)
+![Board](../MSP430FR2311 Board.jpg)

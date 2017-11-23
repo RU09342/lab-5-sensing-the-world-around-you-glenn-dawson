@@ -8,4 +8,4 @@ This sub-folder contains the Gerber files for the MSP430FR2311 Breakout Board. T
 
 ## Board
 
- ![Board](https://github.com/RU09342/lab-5-sensing-the-world-around-you-glenn-dawson/blob/master/PCB%20Design/MSP430FR2311_Board.jpg)
+ ![Board](https://github.com/RU09342/lab-5-sensing-the-world-around-you-glenn-dawson/blob/master/PCB%20Design/board.jpg)

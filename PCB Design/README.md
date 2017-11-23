@@ -4,6 +4,8 @@ This sub-folder contains the Gerber files for the MSP430FR2311 Breakout Board. T
 
 ## Bill of Materials
 
+Digi-Key Cart Share: <http://www.digikey.com/short/q35752>
+
 | RefDes |     Part    | Quantity | Manufacturer  |
 |--------|-------------|----------|---------------|
 |C	 |CAP_0805     |3         |               |
@@ -11,6 +13,7 @@ This sub-folder contains the Gerber files for the MSP430FR2311 Breakout Board. T
 |R	 |RES_0805     |1	  |               |
 |U	 |MSP430FR2311 |1         |               |
 
+* (Note 644456-8 is an obsolete part. The Digi-Key page for the part can be found [here](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/644456-8/A19356-ND/258938).)
 
 ## Schematic
 

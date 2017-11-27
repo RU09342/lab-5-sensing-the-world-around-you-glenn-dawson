@@ -43,10 +43,16 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
+//******************************************************************************
 //  MSP430G2553 Light-level Sensing with a photoresistor
 //
 //  Description: ADC10 is used to sample a light-level reading obtained from the
-//  a photoresistor.
+//  a photoresistor. The contents of ADC10MEM0 are transmitted over UART
+//
+//	UART RX: P1.1
+// 	UART TX: P1.2
+//  ADC input channel: P1.4
+//  Authors: Damon Boorstein and Brendan Nugent
 
 #include <msp430.h>
 
@@ -63,8 +69,8 @@ int main(void)
   P1SEL = BIT1 + BIT2 ;                     // P1.1 = RXD, P1.2=TXD
   P1SEL2 = BIT1 + BIT2 ;                    // P1.1 = RXD, P1.2=TXD
   UCA0CTL1 |= UCSSEL_2;                     // SMCLK
-  UCA0BR0 = 104;                            // 1MHz 9600
-  UCA0BR1 = 0;                              // 1MHz 9600
+  UCA0BR0 = 104;                            // 1MHz - 9600
+  UCA0BR1 = 0;                              // 1MHz - 9600
   UCA0MCTL = UCBRS0;                        // Modulation UCBRSx = 1
   UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
   IE2 |= UCA0RXIE;                          // Enable USCI_A0 RX interrupt
@@ -98,7 +104,7 @@ void __attribute__ ((interrupt(ADC10_VECTOR))) ADC10_ISR (void)
 #error Compiler not supported!
 #endif
 {
-    UCA0TXBUF = ADC10MEM;
+    UCA0TXBUF = ADC10MEM;					  // Transmit ADC contents
     __bic_SR_register_on_exit(CPUOFF);        // Clear CPUOFF bit from 0(SR)
 }
 

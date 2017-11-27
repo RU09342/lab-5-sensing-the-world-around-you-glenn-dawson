@@ -1,3 +1,12 @@
+/* 
+This program is designed for the MSP430FR6989 to display the contents of ADC12MEM0 on the on-board LCD.
+
+Authors: Damon Boorstein and Brendan Nugent
+
+Date: 11/29/2017
+
+*/
+
 #include <msp430.h> 
 #include "LCDDriver.h"
 #include "stdio.h"
@@ -37,7 +46,6 @@ int main(void)
     ADC12CTL2 |= ADC12RES_1;                         // Res = 10bit
     ADC12CTL3 |= ADC12CSTARTADD_0;                   // Result in ADC12MEM0
     ADC12MCTL0 |= ADC12INCH_3 | ADC12VRSEL_0;       // Input channel select A10
-    //ADC12IER0 = ADC12IE0;                          // Interrupt when ready
     ADC12CTL0 |= ADC12ENC;                           // Enable Conversion
 
     __enable_interrupt();
@@ -62,10 +70,6 @@ void LCDInit()
     LCDCPCTL0 = 0xFFFF;
     LCDCPCTL1 = 0xFC3F;
     LCDCPCTL2 = 0x0FFF;
-
-    // Disable the GPIO power-on default high-impedance mode
-    // to activate previously configured port settings
-    //PM5CTL0 &= ~LOCKLPM5;
 
     // Configure LFXT 32kHz crystal
     CSCTL0_H = CSKEY >> 8;                  // Unlock CS registers
@@ -125,7 +129,7 @@ __interrupt void Timer0_A (void)
             else if(digit == 7) showChar('7', ADCdisplay);
             else if(digit == 8) showChar('8', ADCdisplay);
             else if(digit == 9) showChar('9', ADCdisplay);
-            ADCdisplay--;
+            ADCdisplay--; //decrement LCD position
             temp /= 10;
         }
         pauseUpdate = 0; //clear holder
@@ -135,6 +139,6 @@ __interrupt void Timer0_A (void)
 #pragma vector=PORT1_VECTOR
 __interrupt void PORT_1(void)
 {
-    pauseUpdate = 1; // set variable to allow update
+    pauseUpdate = 1; // set variable to allow update when button is pressed
     P1IFG &= ~BIT2; // clear flag
 }

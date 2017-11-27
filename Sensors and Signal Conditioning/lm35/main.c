@@ -67,8 +67,8 @@ int main(void)
   P1SEL = BIT1 + BIT2 ;                     // P1.1 = RXD, P1.2=TXD
   P1SEL2 = BIT1 + BIT2 ;                    // P1.1 = RXD, P1.2=TXD
   UCA0CTL1 |= UCSSEL_2;                     // SMCLK
-  UCA0BR0 = 104;                            // 1MHz 9600
-  UCA0BR1 = 0;                              // 1MHz 9600
+  UCA0BR0 = 104;                            // 1MHz - 9600
+  UCA0BR1 = 0;                              // 1MHz - 9600
   UCA0MCTL = UCBRS0;                        // Modulation UCBRSx = 1
   UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
   IE2 |= UCA0RXIE;                          // Enable USCI_A0 RX interrupt
@@ -88,11 +88,7 @@ int main(void)
     ADC10CTL0 |= ENC + ADC10SC;             // Sampling and conversion start
     __bis_SR_register(CPUOFF + GIE);        // LPM0 with interrupts enabled
 
-    // oF = ((A10/1024)*1500mV)-923mV)*1/1.97mV = A10*761/1024 - 468
-    temp = ADC10MEM;
-    IntDegF = ((temp - 630) * 761) / 1024;
-
-    // oC = ((A10/1024)*1500mV)-986mV)*1/3.55mV = A10*423/1024 - 278
+    // oC = ((A10/1024)*1500mV)-986mV)*1/3.55mV = A10*423/1024 - 278 [Conversion formula according to LM35 datasheet]
     temp = ADC10MEM;
     IntDegC = (1.5 * temp) * 100 / 1024;
 
@@ -110,7 +106,7 @@ void __attribute__ ((interrupt(ADC10_VECTOR))) ADC10_ISR (void)
 #error Compiler not supported!
 #endif
 {
-    UCA0TXBUF = IntDegC;
+    UCA0TXBUF = IntDegC;					  // Trasmit temperature
     __bic_SR_register_on_exit(CPUOFF);        // Clear CPUOFF bit from 0(SR)
 }
 
